@@ -21,9 +21,12 @@ class App extends Component {
       <div className="App">
         <div className='scroll-wrapper'>
           {/* <Scroll> */}
+          <ListView>
             {this.state.movie.map(m => {
               return <Movie movieDetail={m} key={m.id} />
             })}
+          </ListView>
+
           {/* </Scroll> */}
         </div>
 
