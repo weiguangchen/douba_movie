@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import './App.scss';
-import Movie from './components/movie/movie';
 import Tabbar from './components/tabBar/tabBar';
-import Scroll from './components/scroll/scroll';
-import getMovie from './api/api';
-import { ListView } from 'antd-mobile';
-// 上拉加载
+import { getMovie } from './api/api';
+import List from './components/list/list'
+import { BrowserRouter, Route, } from 'react-router-dom';
+
 
 class App extends Component {
   constructor(props) {
@@ -20,17 +19,9 @@ class App extends Component {
     return (
       <div className="App">
         <div className='scroll-wrapper'>
-          {/* <Scroll> */}
-          <ListView>
-            {this.state.movie.map(m => {
-              return <Movie movieDetail={m} key={m.id} />
-            })}
-          </ListView>
-
-          {/* </Scroll> */}
+          <Route path="/" component={List} />
         </div>
-
-        <Tabbar className='tabbar' />
+        <Route component={Tabbar} path='/' />
       </div>
     );
   }

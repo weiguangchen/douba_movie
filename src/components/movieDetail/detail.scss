@@ -1,0 +1,113 @@
+$prefix:'movie';
+
+.#{$prefix}__detail {
+    height: 100%;
+    background: #373a4a;
+
+    .#{$prefix}__img {
+        text-align: center;
+    }
+
+    .#{$prefix}__info {
+        background: #ffffff;
+        padding: 30px;
+
+        .#{$prefix}__desc {
+            display: flex;
+            margin-bottom: 20px;
+            .left {
+                .title {
+                    color: #494949;
+                    font-size: 22px;
+                    font-weight: bold;
+                    margin-bottom: 12px;
+                }
+
+                .desc {
+                    color: #9b9b9b;
+                    font-size: 12px;
+                    line-height: 1.6;
+                }
+            }
+
+            .right {
+                flex: 1;
+                display: flex;
+                justify-content: flex-end;
+
+                .pj {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    box-sizing: border-box;
+                    padding: 12px 0;
+                    text-align: center;
+                    width: 84px;
+                    height: 84px;
+                    box-shadow: 0 0 18px 3px rgba(#000000, .08);
+
+                    .point {
+                        color: #cccccc;
+                        font-size: 12px;
+                    }
+
+                    em {
+                        font-size: 18px;
+                        color: #494949;
+                        font-weight: bold;
+                        font-style: normal;
+                    }
+
+                    .count {
+                        font-size: 12px;
+                        color: #494949;
+                    }
+                }
+            }
+        }
+
+        .#{$prefix}__intr {
+            background: #ffffff;
+            margin-bottom: 30px;
+            .sub_title {
+                margin-bottom: 12px;
+            }
+
+            .content {
+                font-size: 14px;
+                color: #494949;
+                line-height: 1.6;
+            }
+        }
+
+        .#{$prefix}__cases {
+            margin-bottom: 30px;
+            .swiper-img {
+                width: 100%;
+            }
+        }
+        .#{$prefix}__yg {
+            .swiper-slide{
+                height: 156px;
+            }
+            .swiper-img {
+                width: 100%;
+            }
+        }
+    }
+
+
+
+    .sub_title {
+        font-size: 12px;
+        color: #b9b9b9;
+        margin-bottom: 14px;
+    }
+}
+
+.loading{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

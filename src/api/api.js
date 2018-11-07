@@ -1,10 +1,17 @@
 import axios from 'axios';
 
 
-let getMovieUrl = `/v2/movie/in_theaters?apikey=0b2bdeda43b5688921839c8ecb20399b&city=天津&start=0&count=15&client=somemessage&udid=dddddddddddddddddddddd`
+let getMovieList = `/v2/movie/in_theaters?apikey=0b2bdeda43b5688921839c8ecb20399b&city=天津&client=somemessage&udid=dddddddddddddddddddddd`
 
-function getNews() {
-    return axios.get(getMovieUrl)
+// 获取首页电影列表
+function getMovie(start = 0, count = 8) {
+
+    return axios.get(getMovieList, {
+            params: {
+                start,
+                count
+            }
+        })
         .then(res => {
             return res;
         }, err => {
@@ -12,4 +19,28 @@ function getNews() {
         })
 }
 
-export default getNews;
+// 获取电影详情
+function getMovieDetail(id) {
+    return axios.get(`/v2/movie/subject/${id}?apikey=0b2bdeda43b5688921839c8ecb20399b&city=天津&client=something&udid=dddddddddddddddddddddd`)
+        .then(res => {
+            return res;
+        }, err => {
+            return err;
+        })
+}
+
+// 获取短评
+function getComments(id,start=0,count=20){
+    return axios.get(`/v2/movie/subject/${id}/comments?apikey=0b2bdeda43b5688921839c8ecb20399b&client=something&udid=dddddddddddddddddddddd`,{
+        start,
+        count
+    }).then(res=>{
+
+    })
+}
+
+export {
+    getMovie,
+    getMovieDetail,
+    getComments
+};

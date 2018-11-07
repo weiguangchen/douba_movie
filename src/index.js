@@ -1,10 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import App from './App';
+import Tabbar from './components/tabBar/tabBar';
+import List from './components/list/list'
+import MovieDetail from './components/movieDetail/detail';
+import { BrowserRouter, Route, } from 'react-router-dom';
+
+ReactDOM.render((
+    <BrowserRouter>
+        <>
+            <Route exact  path='/' component={App} />
+            <Route path='/movieDetail/:id' component={MovieDetail} />
+        </>
+    </BrowserRouter>
+), document.getElementById('root'))
+
+// ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

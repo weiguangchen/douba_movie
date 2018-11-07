@@ -1,0 +1,22 @@
+$prefix:'comments';
+
+.#{$prefix}{
+    display: flex;
+    .#{$prefix}__avatar{
+        img{
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+    }
+    .#{$prefix}__info{
+        .#{$prefix}__topic{
+            height: 30px;
+            .author{
+                color: #494949;
+                font-weight: bold;
+                font-size: 12px;
+            }
+        }
+    }
+}
