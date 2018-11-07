@@ -11,7 +11,7 @@ export default class Comments extends Component{
         return (
             <div className='comments'>
                 <div className="comments__avatar">
-                    <img src="" alt=""/>
+                    <img src={this.props.commentDetail.author.avatar} alt=""/>
                 </div>
                 <div className="comments__info">
                     <div className="comments__topic">

@@ -32,10 +32,15 @@ function getMovieDetail(id) {
 // 获取短评
 function getComments(id,start=0,count=20){
     return axios.get(`/v2/movie/subject/${id}/comments?apikey=0b2bdeda43b5688921839c8ecb20399b&client=something&udid=dddddddddddddddddddddd`,{
-        start,
-        count
+        params:{
+            start,
+            count
+        }
+       
     }).then(res=>{
-
+        return res;
+    },err=>{
+        return err;
     })
 }
 

@@ -1,5 +1,7 @@
 $prefix:'movie';
-
+%mgb{
+    margin-bottom: 30px;
+}
 .#{$prefix}__detail {
     height: 100%;
     background: #373a4a;
@@ -14,7 +16,7 @@ $prefix:'movie';
 
         .#{$prefix}__desc {
             display: flex;
-            margin-bottom: 20px;
+            @extend %mgb;
             .left {
                 .title {
                     color: #494949;
@@ -68,7 +70,7 @@ $prefix:'movie';
 
         .#{$prefix}__intr {
             background: #ffffff;
-            margin-bottom: 30px;
+            @extend %mgb;
             .sub_title {
                 margin-bottom: 12px;
             }
@@ -81,12 +83,13 @@ $prefix:'movie';
         }
 
         .#{$prefix}__cases {
-            margin-bottom: 30px;
+            @extend %mgb;           
             .swiper-img {
                 width: 100%;
             }
         }
         .#{$prefix}__yg {
+            @extend %mgb;
             .swiper-slide{
                 height: 156px;
             }
@@ -94,7 +97,15 @@ $prefix:'movie';
                 width: 100%;
             }
         }
+
+        .#{$prefix}__comments{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     }
+
+    
 
 
 

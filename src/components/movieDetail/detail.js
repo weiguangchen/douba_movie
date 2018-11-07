@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './detail.scss';
-import { getMovieDetail } from '../../api/api';
+import { getMovieDetail,getComments } from '../../api/api';
 import { ActivityIndicator } from 'antd-mobile';
 import Comment from '../comments/comments';
 import Swiper from 'swiper';
@@ -27,6 +27,7 @@ export default class Detail extends Component {
         super(props)
         this.state = {
             movieDetail: {},
+            comments:[],
             hasData: false
         }
     }
@@ -49,6 +50,11 @@ export default class Detail extends Component {
             })
         })
 
+        getComments(id,0,5).then(res=>{
+            this.setState({
+                comments:res.data
+            })
+        })
 
     }
 
@@ -68,8 +74,9 @@ export default class Detail extends Component {
 
     render() {
         const movieDetail = this.state.movieDetail;
+        const comments = this.state.comments;
 
-
+        console.log(comments)
         return this.state.hasData ? (
             <div className='movie__detail'>
                 <div className='movie__img'>
@@ -133,7 +140,14 @@ export default class Detail extends Component {
                             <div className="swiper-pagination"></div>
                         </div>
                     </div>
-                    <Comment />
+                    
+                    <div className={['movie__comments',this.state.comments.comments?'':'loading']} >
+                        {
+                            this.state.comments.comments?comments.comments.map(m=>{
+                                return <Comment commentDetail={m} key={m.id}/>
+                            }):<ActivityIndicator text='获取短评中' />
+                        }
+                    </div>
                 </div>
 
             </div>
