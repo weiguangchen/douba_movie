@@ -99,9 +99,12 @@ $prefix:'movie';
         }
 
         .#{$prefix}__comments{
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            .subtit{
+                margin-bottom: 27px;
+                font-weight: bold;
+                font-size: 16px;
+                color: #494949;
+            }
         }
     }
 

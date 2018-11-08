@@ -44,8 +44,22 @@ function getComments(id,start=0,count=20){
     })
 }
 
+function getReviews(id,start=0,count=20){
+    return axios.get(`/v2/movie/subject/${id}/reviews?apikey=0b2bdeda43b5688921839c8ecb20399b&client=something&udid=dddddddddddddddddddddd`,{
+        params:{
+            start,
+            count
+        }
+    }).then(res=>{
+        return res;
+    },err=>{
+        return err;
+    })
+}
+
 export {
     getMovie,
     getMovieDetail,
-    getComments
+    getComments,
+    getReviews
 };

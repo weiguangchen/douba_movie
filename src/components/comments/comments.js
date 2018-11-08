@@ -16,16 +16,16 @@ export default class Comments extends Component{
                 <div className="comments__info">
                     <div className="comments__topic">
                         <div className='author'>
-                            <span>ifjweofijwef</span>
+                            <span>{this.props.commentDetail.author.name}</span>
                             <span></span>
                         </div>
-                        <div className="zan">2323</div>
+                        <div className="zan">{this.props.commentDetail.useful_count}</div>
                     </div>
                     <div className="comments__content">
-                        要吸猫大大我打
+                        {this.props.commentDetail.content}
                     </div>
                     <div className="comments__date">
-                        1年前
+                        {this.props.commentDetail.created_at}
                     </div>
                 </div>
             </div>

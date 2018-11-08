@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import './detail.scss';
-import { getMovieDetail,getComments } from '../../api/api';
+import { getMovieDetail,getComments,getReviews } from '../../api/api';
 import { ActivityIndicator } from 'antd-mobile';
 import Comment from '../comments/comments';
+import Review from '../reviews/review';
 import Swiper from 'swiper';
 import 'swiper/dist/css/swiper.min.css'
-
+import classNames from 'classnames';
 function Thumb(props) {
     return (
         <div className='swiper-slide'>
@@ -28,6 +29,7 @@ export default class Detail extends Component {
         this.state = {
             movieDetail: {},
             comments:[],
+            reviews:[],
             hasData: false
         }
     }
@@ -56,6 +58,14 @@ export default class Detail extends Component {
             })
         })
 
+        getReviews(id,0,5).then(res=>{
+            console.log(res)
+            this.setState({
+                reviews:res.data
+            })
+        })
+
+
     }
 
     formatTags() {
@@ -73,10 +83,16 @@ export default class Detail extends Component {
 
 
     render() {
+        const _this = this;
         const movieDetail = this.state.movieDetail;
         const comments = this.state.comments;
+        const reviews = this.state.reviews;
 
-        console.log(comments)
+        let commentClass = classNames({
+            'movie__comments':true,
+            'loading':!_this.state.comments.comments
+        })
+
         return this.state.hasData ? (
             <div className='movie__detail'>
                 <div className='movie__img'>
@@ -141,11 +157,20 @@ export default class Detail extends Component {
                         </div>
                     </div>
                     
-                    <div className={['movie__comments',this.state.comments.comments?'':'loading']} >
+                    <div className={commentClass} >
+                        <div className='subtit'>短评</div>
                         {
-                            this.state.comments.comments?comments.comments.map(m=>{
+                            comments.comments?comments.comments.map(m=>{
                                 return <Comment commentDetail={m} key={m.id}/>
                             }):<ActivityIndicator text='获取短评中' />
+                        }
+                    </div>
+                    <div className={commentClass} >
+                        <div className='subtit'>影评</div>
+                        {
+                            reviews.reviews?reviews.reviews.map(m=>{
+                                return <Review reviewDetail={m} key={m.id}/>
+                            }):<ActivityIndicator text='获取影评中' />
                         }
                     </div>
                 </div>

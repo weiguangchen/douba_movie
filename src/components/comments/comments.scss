@@ -2,7 +2,9 @@ $prefix:'comments';
 
 .#{$prefix}{
     display: flex;
+    margin-bottom: 32px;
     .#{$prefix}__avatar{
+        margin-right: 10px;
         img{
             width: 30px;
             height: 30px;
@@ -10,13 +12,30 @@ $prefix:'comments';
         }
     }
     .#{$prefix}__info{
+        flex:1;
         .#{$prefix}__topic{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             height: 30px;
+            font-size: 12px;
             .author{
                 color: #494949;
                 font-weight: bold;
-                font-size: 12px;
+                font-size: 14px;
+            }
+            .zan{
+                color: #cccccc;
             }
         }
+        .#{$prefix}__content{
+            font-size: 14px;
+            line-height: 22px;
+            margin-bottom: 10px;
+        }
+        .#{$prefix}__date{
+            color: #cccccc;
+        }
+        
     }
 }
