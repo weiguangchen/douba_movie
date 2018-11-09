@@ -8,12 +8,11 @@ export default class Movie extends Component {
 
     formatCollect(count){
         let w = (parseInt(count)/10000).toFixed(1);
-        console.log(w, count.toString().length )
-        return count.toString().length>=5?w:count;
+        return count.toString().length>=5?`${w}万`:count;
     }
 
     render() {
-        const movie = this.props.movieDetail;
+        const movie = this.props.data;
 
         const casts = movie.casts.map(m => {
             return m.name;
@@ -29,7 +28,7 @@ export default class Movie extends Component {
                     <div className="casts">主演：{casts}</div>
                 </div>
                 <div className="movie__buy">
-                    <div className="collect_count">{this.formatCollect(movie.collect_count)}万人看过</div>
+                    <div className="collect_count">{this.formatCollect(movie.collect_count)}人看过</div>
                 </div>
             </Link>
 

@@ -145,12 +145,9 @@ class Demo extends React.Component {
   render() {
 
     const row = (rowData, sectionID, rowID) => {
-
       return (
         <Movie movieDetail={rowData}/>
       )
-
-
     };
 
     return (

@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import './App.scss';
 import Tabbar from './components/tabBar/tabBar';
 import { getMovie } from './api/api';
-import List from './components/list/list'
+import MovieList from './components/list/movieList';
+
 import { BrowserRouter, Route, } from 'react-router-dom';
 
 
@@ -19,7 +20,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className='scroll-wrapper'>
-          <Route path="/" component={List} />
+          <Route path="/" component={MovieList} />
         </div>
         <Route component={Tabbar} path='/' />
       </div>

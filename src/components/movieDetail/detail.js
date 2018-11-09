@@ -7,6 +7,7 @@ import Review from '../reviews/review';
 import Swiper from 'swiper';
 import 'swiper/dist/css/swiper.min.css'
 import classNames from 'classnames';
+import {Link} from 'react-router-dom';
 function Thumb(props) {
     return (
         <div className='swiper-slide'>
@@ -30,7 +31,8 @@ export default class Detail extends Component {
             movieDetail: {},
             comments:[],
             reviews:[],
-            hasData: false
+            hasData: false,
+            id:this.props.match.params.id
         }
     }
 
@@ -164,6 +166,7 @@ export default class Detail extends Component {
                                 return <Comment commentDetail={m} key={m.id}/>
                             }):<ActivityIndicator text='获取短评中' />
                         }
+                            <Link className='total' to={`/allComments/${this.state.id}`}>全部短评{comments.total}条</Link>
                     </div>
                     <div className={commentClass} >
                         <div className='subtit'>影评</div>

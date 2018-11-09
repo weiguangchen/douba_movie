@@ -7,6 +7,7 @@ import App from './App';
 import Tabbar from './components/tabBar/tabBar';
 import List from './components/list/list'
 import MovieDetail from './components/movieDetail/detail';
+import AllComments from './components/comments/allComments';
 import { BrowserRouter, Route, } from 'react-router-dom';
 
 ReactDOM.render((
@@ -14,6 +15,7 @@ ReactDOM.render((
         <>
             <Route exact  path='/' component={App} />
             <Route path='/movieDetail/:id' component={MovieDetail} />
+            <Route path='/allComments/:id' component={AllComments}/>
         </>
     </BrowserRouter>
 ), document.getElementById('root'))
