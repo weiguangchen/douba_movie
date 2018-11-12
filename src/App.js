@@ -3,7 +3,8 @@ import './App.scss';
 import Tabbar from './components/tabBar/tabBar';
 import { getMovie } from './api/api';
 import MovieList from './components/list/movieList';
-
+import MovieDetail from './components/movieDetail/detail';
+import AllComments from './components/comments/allComments';
 import { BrowserRouter, Route, } from 'react-router-dom';
 
 

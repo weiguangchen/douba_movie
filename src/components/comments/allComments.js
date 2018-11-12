@@ -5,6 +5,7 @@ import { StickyContainer, Sticky } from 'react-sticky';
 import Comments from './comments';
 import './allComments.scss';
 import {getComments} from '../../api/api';
+import CommentsList from '../list/commentList';
 function renderTabBar(props) {
     return (<Sticky>
         {({ style }) => <div style={{ ...style, zIndex: 1 }}><Tabs.DefaultTabBar {...props} /></div>}
@@ -31,6 +32,7 @@ export default class extends Component {
             <StickyContainer>
                 <Tabs tabs={tabs} renderTabBar={renderTabBar}>
                     <div className='content'>
+                        {/* <CommentsList /> */}
                     </div>
                     <div className='content'>
                         Content of second tab

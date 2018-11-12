@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { ListView } from 'antd-mobile';
-import { getMovie } from '../../api/api';
-import Movie from '../movie/movie'
+
 
 function MyBody(props) {
     return (
