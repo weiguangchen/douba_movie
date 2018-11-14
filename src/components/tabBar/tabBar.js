@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 
 import { TabBar, Icon } from 'antd-mobile';
 
+import '../../assets/fonts/iconfont';
+import './tabBar.scss';
 /* eslint global-require: 0 */
+
+
 
 export default class tabbar extends Component {
     constructor(props) {
@@ -40,22 +44,10 @@ export default class tabbar extends Component {
                 <TabBar.Item
                     title="生活"
                     key="生活"
-                    icon={<div style={{
-                        width: '22px',
-                        height: '22px',
-                        background: 'url(https://zos.alipayobjects.com/rmsportal/sifuoDUQdAFKAVcFGROC.svg) center center /  22px 22px no-repeat'
-                    }}
-                    />
-                    }
-                    selectedIcon={<div style={{
-                        width: '22px',
-                        height: '22px',
-                        background: 'url(https://zos.alipayobjects.com/rmsportal/iSrlOTqrKddqbOmlvUfq.svg) center center /  22px 22px no-repeat'
-                    }}
-                    />
-                    }
+                    icon={<i className="iconfont icon-shu"></i>}
+                    selectedIcon={<i className="iconfont icon-shu"></i>}
                     selected={this.state.selectedTab === 'blueTab'}
-                    badge={1}
+                    // badge={1}
                     onPress={() => {
                         this.setState({
                             selectedTab: 'blueTab',
@@ -66,11 +58,11 @@ export default class tabbar extends Component {
                     {/* {this.renderContent('生活')} */}
                 </TabBar.Item>
                 <TabBar.Item
-                    icon={<Icon type="koubei-o" size="md" />}
-                    selectedIcon={<Icon type="koubei" size="md" />}
+                    icon={<i className='iconfont icon-yanjing'></i>}
+                    selectedIcon={<i className='iconfont icon-yanjing'></i>}
                     title="口碑"
                     key="口碑"
-                    badge={'new'}
+                    // badge={'new'}
                     selected={this.state.selectedTab === 'redTab'}
                     onPress={() => {
                         this.setState({
@@ -82,25 +74,11 @@ export default class tabbar extends Component {
                     {/* {this.renderContent('口碑')} */}
                 </TabBar.Item>
                 <TabBar.Item
-                    icon={
-                        <div style={{
-                            width: '22px',
-                            height: '22px',
-                            background: 'url(https://zos.alipayobjects.com/rmsportal/psUFoAMjkCcjqtUCNPxB.svg) center center /  22px 22px no-repeat'
-                        }}
-                        />
-                    }
-                    selectedIcon={
-                        <div style={{
-                            width: '22px',
-                            height: '22px',
-                            background: 'url(https://zos.alipayobjects.com/rmsportal/IIRLrXXrFAhXVdhMWgUI.svg) center center /  22px 22px no-repeat'
-                        }}
-                        />
-                    }
+                    icon={<i className='iconfont icon-wode-copy'></i>}
+                    selectedIcon={<i className='iconfont icon-wode-copy'></i>}
                     title="朋友"
                     key="朋友"
-                    dot
+                    // dot
                     selected={this.state.selectedTab === 'greenTab'}
                     onPress={() => {
                         this.setState({

@@ -163,7 +163,7 @@ export default class Detail extends Component {
                         <div className='subtit'>短评</div>
                         {
                             comments.comments?comments.comments.map(m=>{
-                                return <Comment commentDetail={m} key={m.id}/>
+                                return <Comment data={m} key={m.id}/>
                             }):<ActivityIndicator text='获取短评中' />
                         }
                             <Link className='total' to={`/allComments/${this.state.id}`}>全部短评{comments.total}条</Link>

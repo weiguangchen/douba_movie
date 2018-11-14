@@ -3,6 +3,7 @@ import React, {
 } from 'react';
 import './movie.scss';
 import { Link } from 'react-router-dom';
+import '../../assets/fonts/iconfont.css';
 
 export default class Movie extends Component {
 

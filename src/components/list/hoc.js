@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { ListView } from 'antd-mobile';
-
+import { ActivityIndicator } from 'antd-mobile';
 
 function MyBody(props) {
     return (
@@ -17,13 +17,11 @@ let sectionIDs = [];
 let rowIDs = [];
 
 
-export default function listHoc(WarpperComponent, ajaxData) {
+export default function listHoc(RowComponent, options) {
     return class extends Component {
-
         constructor(props) {
             super(props);
             // const getSectionData = (dataBlob, sectionID) => dataBlob[sectionID];
-
             const dataSource = new ListView.DataSource({
                 getRowData: (dataBlob, sectionID, rowID) => dataBlob[sectionID][rowID],
                 // getSectionHeaderData: getSectionData,
@@ -49,7 +47,20 @@ export default function listHoc(WarpperComponent, ajaxData) {
             // console.log(this.state.dataSource)
 
 
-            ajaxData().then(res=>{
+            // ajaxData().then(res=>{
+            //     console.log('挂载成功！')
+            //     console.log(res)
+            //     Object.assign(dataBlobs,res.dataBlobs);
+            //     rowIDs = rowIDs.concat(res.rowIDs);
+            //     console.log(dataBlobs)
+            //     console.log(rowIDs)
+            //     this.setState({
+            //         dataSource: this.state.dataSource.cloneWithRows(dataBlobs,rowIDs),
+            //         isLoading: false,
+            //     });
+            // })
+
+            this.props.getData().then(res=>{
                 console.log('挂载成功！')
                 console.log(res)
                 Object.assign(dataBlobs,res.dataBlobs);
@@ -60,7 +71,6 @@ export default function listHoc(WarpperComponent, ajaxData) {
                     dataSource: this.state.dataSource.cloneWithRows(dataBlobs,rowIDs),
                     isLoading: false,
                 });
-    
             })
 
 
@@ -86,7 +96,7 @@ export default function listHoc(WarpperComponent, ajaxData) {
             this.setState({ isLoading: true });
 
 
-            ajaxData(start += 8).then(res=>{
+            this.props.getData(start += options.pageNum).then(res=>{
                 console.log('上拉加载')
                 console.log(res)
 
@@ -106,7 +116,7 @@ export default function listHoc(WarpperComponent, ajaxData) {
 
             const row = (rowData, sectionID, rowID) => {
                 return (
-                    <WarpperComponent data={rowData} />
+                    <RowComponent data={rowData} />
                 )
             };
 
@@ -116,7 +126,7 @@ export default function listHoc(WarpperComponent, ajaxData) {
                     dataSource={this.state.dataSource}
                     // renderHeader={() => <span>header</span>}
                     renderFooter={() => (<div style={{ padding: 30, textAlign: 'center' }}>
-                        {this.state.isLoading ? 'Loading...' : 'Loaded'}
+                        {this.state.isLoading ? <ActivityIndicator text='加载中' size='large'/> : '加载完成'}
                     </div>)}
                     // renderSectionHeader={sectionData => (
                     //   <div>{`Task ${sectionData.split(' ')[1]}`}</div>
