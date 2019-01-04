@@ -3,7 +3,7 @@ import axios from 'axios';
 
 let getMovieList = `/v2/movie/in_theaters?apikey=0b2bdeda43b5688921839c8ecb20399b&city=天津&client=somemessage&udid=dddddddddddddddddddddd`
 
-// 获取首页电影列表
+/* 获取首页电影列表 */
 function getMovie(start = 0, count = 8) {
 
     return axios.get(getMovieList, {
@@ -19,7 +19,7 @@ function getMovie(start = 0, count = 8) {
         })
 }
 
-// 获取电影详情
+/* 获取电影详情 */
 function getMovieDetail(id) {
     return axios.get(`/v2/movie/subject/${id}?apikey=0b2bdeda43b5688921839c8ecb20399b&city=天津&client=something&udid=dddddddddddddddddddddd`)
         .then(res => {
@@ -29,7 +29,7 @@ function getMovieDetail(id) {
         })
 }
 
-// 获取短评
+/* 获取短评 */
 function getComments(id,start=0,count=20){
     return axios.get(`/v2/movie/subject/${id}/comments?apikey=0b2bdeda43b5688921839c8ecb20399b&client=something&udid=dddddddddddddddddddddd`,{
         params:{

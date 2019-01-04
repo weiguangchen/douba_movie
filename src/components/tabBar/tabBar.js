@@ -12,7 +12,7 @@ export default class tabbar extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            selectedTab: 'redTab',
+            selectedTab: '1',
             hidden: false,
         };
     }
@@ -46,11 +46,11 @@ export default class tabbar extends Component {
                     key="生活"
                     icon={<i className="iconfont icon-shu"></i>}
                     selectedIcon={<i className="iconfont icon-shu"></i>}
-                    selected={this.state.selectedTab === 'blueTab'}
+                    selected={this.state.selectedTab === '1'}
                     // badge={1}
                     onPress={() => {
                         this.setState({
-                            selectedTab: 'blueTab',
+                            selectedTab: '1',
                         });
                     }}
                     data-seed="logId"
@@ -63,10 +63,10 @@ export default class tabbar extends Component {
                     title="口碑"
                     key="口碑"
                     // badge={'new'}
-                    selected={this.state.selectedTab === 'redTab'}
+                    selected={this.state.selectedTab === '2'}
                     onPress={() => {
                         this.setState({
-                            selectedTab: 'redTab',
+                            selectedTab: '2',
                         });
                     }}
                     data-seed="logId1"
@@ -79,10 +79,10 @@ export default class tabbar extends Component {
                     title="朋友"
                     key="朋友"
                     // dot
-                    selected={this.state.selectedTab === 'greenTab'}
+                    selected={this.state.selectedTab === '3'}
                     onPress={() => {
                         this.setState({
-                            selectedTab: 'greenTab',
+                            selectedTab: '3',
                         });
                     }}
                 >
